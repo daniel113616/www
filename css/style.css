@@ -1,0 +1,474 @@
+/*水平布局*/
+.horizontal-view{display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display: flex;-webkit-box-orient: horizontal;-moz-box-orient: horizontal;-webkit-flex-direction: row;-ms-flex-direction: row;flex-direction: row;}
+/*垂直布局*/
+.vertical-view{display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display: flex;-webkit-box-orient: vertical;-moz-box-orient: vertical;-webkit-flex-direction: column;-ms-flex-direction: column;flex-direction: column;}
+
+/*设置或检索弹性盒子元素在侧轴（纵轴）方向上的对齐方式。*/
+/*弹性盒子元素的侧轴（纵轴）起始位置的边界紧靠住该行的侧轴起始边界。*/
+.align-items-start {-webkit-box-align: start;-ms-flex-align: start;-webkit-align-items: flex-start;-moz-align-items: flex-start;align-items: flex-start}
+/*弹性盒子元素在该行的侧轴（纵轴）上居中放置。（如果该行的尺寸小于弹性盒子元素的尺寸，则会向两个方向溢出相同的长度）。*/
+.align-items-center {-webkit-box-align: center;-ms-flex-align: center;-webkit-align-items: center;-moz-align-items: center;align-items: center}
+/*弹性盒子元素的侧轴（纵轴）起始位置的边界紧靠住该行的侧轴结束边界。*/
+.align-items-end {-webkit-box-align: end;-ms-flex-align: end;-webkit-align-items: flex-end;-moz-align-items: flex-end;align-items: flex-end}
+/*如弹性盒子元素的行内轴与侧轴为同一条，则该值与'flex-start'等效。其它情况下，该值将参与基线对齐。*/
+.align-items-baseline {-webkit-box-align: baseline;-ms-flex-align: baseline;-webkit-align-items: baseline;-moz-align-items: baseline;align-items: baseline}
+/*如果指定侧轴大小的属性值为'auto'，则其值会使项目的边距盒的尺寸尽可能接近所在行的尺寸，但同时会遵照'min/max-width/height'属性的限制。*/
+.align-items-stretch {-webkit-box-align: stretch;-moz-box-align: stretch;-ms-flex-align: stretch;-webkit-align-items: stretch;align-items: stretch}
+
+/*设置或检索弹性盒子元素在主轴（横轴）方向上的对齐方式。*/
+/*弹性盒子元素将向行起始位置对齐。该行的第一个子元素的主起始位置的边界将与该行的主起始位置的边界对齐，同时所有后续的伸缩盒项目与其前一个项目对齐。*/
+.justify-content-start {-webkit-box-pack: start;-moz-box-pack: start;-ms-flex-pack: start;-webkit-justify-content: flex-start;justify-content: flex-start}
+/*弹性盒子元素将向行结束位置对齐。该行的第一个子元素的主结束位置的边界将与该行的主结束位置的边界对齐，同时所有后续的伸缩盒项目与其前一个项目对齐。*/
+.justify-content-center {-webkit-box-pack: center;-moz-box-pack: center;-ms-flex-pack: center;-webkit-justify-content: center;justify-content: center}
+/*弹性盒子元素将向行中间位置对齐。该行的子元素将相互对齐并在行中居中对齐，同时第一个元素与行的主起始位置的边距等同与最后一个元素与行的主结束位置的边距（如果剩余空间是负数，则保持两端相等长度的溢出）。*/
+.justify-content-end {-webkit-box-pack: end;-moz-box-pack: end;-ms-flex-pack: end;-webkit-justify-content: flex-end;justify-content: flex-end}
+/*弹性盒子元素会平均地分布在行里。如果最左边的剩余空间是负数，或该行只有一个子元素，则该值等效于'flex-start'。在其它情况下，第一个元素的边界与行的主起始位置的边界对齐，同时最后一个元素的边界与行的主结束位置的边距对齐，而剩余的伸缩盒项目则平均分布，并确保两两之间的空白空间相等。*/
+.justify-content-space-between{-webkit-box-pack: justify;-moz-box-pack: justify;-ms-flex-pack: justify;-webkit-justify-content: space-between;justify-content: space-between}
+/*平分父容器 弹性盒子元素会平均地分布在行里，两端保留子元素与子元素之间间距大小的一半。如果最左边的剩余空间是负数，或该行只有一个伸缩盒项目，则该值等效于'center'。在其它情况下，伸缩盒项目则平均分布，并确保两两之间的空白空间相等，同时第一个元素前的空间以及最后一个元素后的空间为其他空白空间的一半。*/
+.justify-content-space-around {-webkit-box-pack: justify;-moz-box-pack: justify;-ms-flex-pack: distribute;-webkit-justify-content: space-around;justify-content: space-around}
+
+/*等宽度对齐flex1*/
+.flex1{-webkit-box-flex: 1;-moz-box-flex: 1;-ms-flex: 1;-webkit-flex: 1;flex: 1;}
+.bg, .order-detail-parent {
+  background: #EFEFEF;
+  height: 100%;
+  width: 100%; }
+
+@-webkit-keyframes rotation {
+  from {
+    -webkit-transform: rotate(0deg); }
+  to {
+    -webkit-transform: rotate(360deg); } }
+
+.loading-div {
+  text-align: center; }
+  .loading-div img {
+    display: block; }
+  .loading-div img:first-child {
+    width: 38px; }
+  .loading-div img:last-child {
+    width: 25px;
+    margin-top: -30px;
+    margin-left: 6px; }
+
+.Rotation {
+  -webkit-transform: rotate(360deg);
+  animation: rotation 1s linear infinite;
+  -moz-animation: rotation 1s linear infinite;
+  -webkit-animation: rotation 1s linear infinite;
+  -o-animation: rotation 1s linear infinite; }
+
+.loan-content {
+  background: #fff;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  height: 350px; }
+  .loan-content > div {
+    width: 100%;
+    text-align: center; }
+  .loan-content p:first-child {
+    font-size: 15px;
+    color: #959595; }
+  .loan-content p:last-child {
+    font-size: 15px;
+    color: #535353; }
+  .loan-content .money {
+    text-align: center;
+    background: url("../img/loan_bg.png?v=882d1cd812?v=882d1cd812?v=882d1cd812") no-repeat 0 center;
+    margin: 20px 7%;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50% 50% 50% 50% / 50% 50% 50% 50%;
+    font-weight: bold;
+    font-size: 43px; }
+
+.dlg-lrbtn {
+  padding-top: 15px;
+  width: 100%;
+  height: 40px;
+  color: #0c60ee; }
+.dlg-lrbtn .btn-m {
+  width: 100%;
+  float: left;
+  text-align: center;
+  color: #8f8f8f; }
+  .dlg-lrbtn .btn-l {
+    width: 50%;
+    float: left;
+    text-align: center;
+    color: #8f8f8f; }
+  .dlg-lrbtn .btn-r {
+    width: 50%;
+    float: right;
+    text-align: center; }
+    .dlg-lrbtn .btn-r > span {
+      padding: 6px 15px;
+      border: 1px solid #0c60ee;
+      border-radius: 5px; }
+
+.modal-div, .input-modal-div {
+  padding: 20px 15px;
+  height: auto; }
+
+.list .item.item-accordion {
+  line-height: 38px;
+  padding-top: 0;
+  padding-bottom: 0;
+  transition: 0.09s all linear; }
+
+.list .item.item-accordion.ng-hide {
+  line-height: 0px; }
+
+.list .item.item-accordion.ng-hide-add,
+.list .item.item-accordion.ng-hide-remove {
+  display: block !important; }
+
+.help-box {
+  background: #fff;
+  width: 50%;
+  height: 90px;
+  float: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 19px; }
+  .help-box :active {
+    background-color: #EFEFEF; }
+
+.border-t {
+  border-top: 1px solid #D3D3D3; }
+
+.border-r {
+  border-right: 1px solid #D3D3D3; }
+
+.foot {
+  position: absolute;
+  bottom: 0; }
+
+.foot-div-btn {
+  width: 100%;
+  box-shadow: 0 -5px 5px #D3D3D3;
+  -webkit-box-shadow: 0 -5px 5px #D3D3D3;
+  padding: 5px 15px;
+  text-align: center;
+  background: #ffffff; }
+
+.btn-bottom {
+  background: #EBEBEB;
+  width: 100%;
+  text-align: center;
+  color: #ADADAD;
+  font-size: 16px;
+  padding: 12px 0;
+  border-radius: 5px; }
+
+.txt-title {
+  font-size: 16px; }
+
+.td-content div, .order-detail-parent > div > table tr .td1 div, .order-detail-parent > div > table tr .td2 div {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 50px; }
+  .td-content div span, .order-detail-parent > div > table tr .td1 div span, .order-detail-parent > div > table tr .td2 div span {
+    word-wrap: break-word; }
+    .td-content div span:first-of-type, .order-detail-parent > div > table tr .td1 div span:first-of-type, .order-detail-parent > div > table tr .td2 div span:first-of-type {
+      width: 70%;
+      text-align: left; }
+    .td-content div span:last-of-type, .order-detail-parent > div > table tr .td1 div span:last-of-type, .order-detail-parent > div > table tr .td2 div span:last-of-type {
+      width: 30%;
+      text-align: right; }
+
+.order-detail-parent > span {
+  font-size: 17px;
+  color: #1E1E1E;
+  display: block;
+  padding: 15px; }
+
+.order-detail-parent > div {
+  padding-bottom: 100px; }
+  .order-detail-parent > div > table {
+    width: 100%;
+    height: auto;
+    table-layout: fixed; }
+    .order-detail-parent > div > table tr {
+      height: 60px;
+      text-align: center;
+      font-size: 13px; }
+      .order-detail-parent > div > table tr .td1 {
+        background: #ffffff;
+        padding: 5px;
+        border-width: 0px 0.1px 0.1px 0.1px;
+        border-style: solid;
+        border-color: #D3D3D3;
+        box-sizing: border-box;
+        width: 50%;
+        max-width: 50%; }
+      .order-detail-parent > div > table tr .td2 {
+        background: #EFEFEF;
+        padding: 5px;
+        border-width: 0px 1px 0px 0px;
+        border-style: solid;
+        border-color: transparent;
+        box-sizing: border-box;
+        width: 50%;
+        max-width: 50%; }
+
+.input-modal-div > p {
+  font-size: 13px; }
+
+.input-modal-div .input-div {
+  padding: 0 5px;
+  height: 34px;
+  box-sizing: content-box;
+  background: #fff;
+  border: solid #D3D3D3 1px; }
+
+.dlg-btn-r {
+  width: 100%;
+  text-align: right;
+  height: 20px; }
+  .dlg-btn-r div {
+    margin-top: 20px; }
+    .dlg-btn-r div > span {
+      color: #0c60ee;
+      padding: 6px 20px;
+      border: 1px solid #0c60ee;
+      border-radius: 5px; }
+
+.qr-content-parent {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  z-index: 99999;
+  top:0;
+  left: 0;
+  color: white;
+  display: flex; }
+  .qr-content-parent > div {
+    width: 100%;
+    text-align: center;
+    margin-top: 30%; }
+    .qr-content-parent > div p:first-child {
+      font-size: 16px; }
+    .qr-content-parent > div P:last-child {
+      font-size: 14px; }
+    .qr-content-parent > div img {
+      margin-top: 20px;
+      width: 60%; }
+
+.share_container {
+  padding: 50% 8% 0 8%;
+  text-align: center; }
+  .share_container > span {
+    font-size: 17px;
+    display: block;
+    color: #090909;
+    line-height: 150%; }
+  .share_container > div {
+    margin-top: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around; }
+    .share_container > div div {
+      width: 100%;
+      text-align: center; }
+      .share_container > div div > span {
+        line-height: 240%;
+        color: #757575; }
+      .share_container > div div > img {
+        display: block;
+        width: 60%;
+        margin: auto; }
+.div-parent{
+  width: 100%;
+  height: 100vh;
+  background:#efefef;
+}
+
+
+.main-container{
+  padding: 15px;
+  text-align: left;
+  background:#ffffff;
+}
+.main-container >h4{
+  text-align: center;
+}
+.main-container >p{
+  text-align: left;
+  font-size: 14px;
+  line-height: 200%;
+  padding: 0 20px;
+}
+.margin-top-10{
+  margin-top: 10px;
+}
+.margin-top-20{
+  margin-top: 20px;
+}
+
+.header-margin{
+  margin-top: 40px;
+}
+
+/*  弹出框  */
+.bb_mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 98;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  opacity: 0.7;
+}
+
+.bb_body-5 {
+  position: absolute;
+  z-index: 999;
+  top: 50%;
+  left: 50%;
+  background-color: #fff;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  width: 80%;
+  display: block;
+}
+
+.sms-div{
+  width: 100%;
+}
+
+.btn-sms:active{
+  opacity: .4;
+}
+.line-h{
+  margin: 20px 0 5px;
+  height: 1px;
+  width: 100%;
+  background: gray;
+}
+.list-div{
+  background-color: #ffffff;
+  padding: 10px;
+}
+.cai-content{
+  padding: 15px;
+  background: #ffffff;
+  line-height: 100%;
+  color: #1E1E1E;
+  font-size: 14px;
+}
+.cai-content >p{
+  margin-top: 15px;
+  color: #000000;
+  font-weight: bold;
+}
+.list-item{
+  padding: 10px;
+  background-color: #ffffff;
+  border: 1px solid #9e9e9e;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+.shop-div{}
+.shop-div-top{
+  background-color: #ffffff;
+  padding: 15px;}
+.title-txt{
+  font-size: 25px;
+
+}
+.sub-title-txt{
+  font-size: 14px;
+  margin: 10px 0;
+}
+
+.radio-div{
+  color: darkgray;
+  text-align: center;
+  background-color: #ffffff;
+  border: none;
+  border-bottom: 1px solid darkgray;
+  padding: 5px;
+  width: 25%;
+
+}
+.radio-div:active{
+  color: #4b8bf4;
+  border-bottom: 1px solid #4b8bf4;
+}
+.radio-div:disabled{
+  color: darkgray;
+  border-bottom: 1px solid darkgray;
+}
+.radio-div:hover{
+  color: #4b8bf4;
+  border-bottom: 1px solid #4b8bf4;
+}
+.radio-div-seleced{
+  color: #4b8bf4;
+  text-align: center;
+  background-color: #ffffff;
+  border: none;
+  border-bottom: 1px solid #4b8bf4;
+  padding: 5px;
+  width: 20%;
+}
+.bot-content-div{
+  background-color: white;
+  margin-top: 10px;
+  padding: 10px;
+}
+.content-time-p{
+  font-size: 14px;
+  color: darkgray;
+}
+.content-p{
+  font-size: 14px;
+}
+.content-p >span{
+  font-size: 16px;
+  font-weight: bold;
+}
+.tc{
+  text-align: center;
+}
+
+.help-parent{
+  background: #fff;
+  padding: 5px 15px 10px 15px;
+
+  color: #333;
+}
+.help-parent >p{
+  font-size: 12px;
+  margin: 5px 0;
+}
+.help-parent >p >span{
+  color: red;
+}
+.help-parent >.p-title-txt{
+  margin-top: 10px;
+  font-size: 18px;
+}
+.help-parent >.p-sub-txt{
+  margin-top: 10px;
+  font-size: 15px;
+}
+
+
+
+
+
